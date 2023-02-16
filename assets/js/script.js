@@ -1,68 +1,133 @@
-function addnewField(){
-    let newNode=document.createElement('textarea');
-    newNode.classList.add('form-control');
 
+function addNewField() {
+    let newNode = document.createElement('textarea');
+    newNode.classList.add('form-control')
+    newNode.setAttribute('rows', 3);
+    newNode.classList.add('mt-2');
     newNode.classList.add('wefield');
-    newNode.setAttribute('rows',3);
-newNode.classList.add('mt-2')
-      let weOb=document.getElementById('we')
-    let weaddbtn=document.getElementById('weAddbtn')
 
-
-
-    weOb.insertBefore(newNode, weaddbtn)
-}
-
-
-function addNewQu(){
-    let newNode=document.createElement('textarea');
-    newNode.classList.add('form-control');
+    newNode.classList.add('pick')
+    let weOB = document.getElementById('we')
+    let weaddbtn = document.getElementById('weAddBtn');
+    weOB.insertBefore(newNode, weaddbtn);
+  
+    updateClearOutButtonState();
+  }
+  
+  function addNewAQ() {
+    let newNode = document.createElement('textarea');
+    newNode.classList.add('form-control')
     newNode.classList.add('eqfield');
-    newNode.setAttribute('rows',3);
-newNode.classList.add('mt-2')
-      let AqOb=document.getElementById('aq')
-    let AQaddbtn=document.getElementById('aqAddbutton')
 
+    newNode.setAttribute('rows', 3);
+    newNode.classList.add('pick')
+    newNode.classList.add('mt-2');
+    let weOB = document.getElementById('aq')
+    let weaddbtn = document.getElementById('aqBtn');
+    weOB.insertBefore(newNode, weaddbtn);
+  
+    updateClearOutButtonStatetwo();
+  }
+  function updateClearOutButtonState() {
+    let textareas = document.querySelectorAll('.pick');
+    let clearOutButton = document.querySelector('.getbtn');
+    if (clearOutButton && textareas.length >=1) {
+      clearOutButton.style.display = 'flex';
+    } else if (clearOutButton) {
+      clearOutButton.style.display = 'none';
+    }
+  }
+  
+  for (var i = 0; i < 1; i++) {
+    let weaddbtn = document.getElementById('weAddBtn');
+    let newbtn = document.createElement('button')
+    newbtn.classList.add('btn')
+    newbtn.classList.add('btn-primary')
+    newbtn.classList.add('btn-sm')
+    newbtn.classList.add('getbtn')
+    newbtn.innerText = 'clear out'
+  
+    weaddbtn.addEventListener('click', () => {
+      weaddbtn.append(newbtn);
+      updateClearOutButtonState();
+    });
+  }
+  
+  document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('getbtn')) {
+      event.target.parentNode.previousSibling.remove();
+      updateClearOutButtonState();
+    }
+  });
 
-    AqOb.insertBefore(newNode, AQaddbtn)
-}
-//Cv generate
-function generateCV(){
+  function updateClearOutButtonStatetwo(){
+    let textareas = document.querySelectorAll('.pick');
+    let clearOutButton = document.querySelector('.getbtn2');
+    if (clearOutButton && textareas.length >= 1) {
+      clearOutButton.style.display = 'flex';
+    } else if (clearOutButton) {
+      clearOutButton.style.display = 'none';
+    }
+  
+  }
+
+  for (var i = 0; i < 1; i++) {
+    let Aqbtn = document.getElementById('aqBtn');
+    console.log(Aqbtn)
+    let newbtn = document.createElement('button')
+    newbtn.classList.add('btn')
+    newbtn.classList.add('btn-primary')
+    newbtn.classList.add('btn-sm')
+    newbtn.classList.add('getbtn2')
+    newbtn.innerText = 'clear out'
+  
+    Aqbtn.addEventListener('click', () => {
+      Aqbtn.append(newbtn);
+      updateClearOutButtonStatetwo();
+    });
+  }
+  
+  document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('getbtn2')) {
+event.target.parentNode.previousSibling.remove();
+
+      updateClearOutButtonStatetwo();  
+    }
+  });
+
+function genearateCV(){
     let nameField=document.getElementById('nameField').value;
     let nameT1=document.getElementById('nameT1');
     nameT1.innerHTML=nameField;
 
+            document.getElementById('nameT2').innerHTML=nameField;
 
-document.getElementById('nameT2').innerHTML=nameField;
-//contacts
-document.getElementById('contactT').innerHTML=document.getElementById('ContactField').value;
-//adreess
-document.getElementById('addressT').innerHTML=document.getElementById('AddressField').value;
-//socail links
-document.getElementById('FbT').href=document.getElementById('fb-field').value;
-document.getElementById('InstaT').href=document.getElementById('insta-field').value;
-document.getElementById('LinkT').href=document.getElementById('linkedin-field').value;
+document.getElementById('contactT').innerHTML=document.getElementById('contactField').value;
 
+document.getElementById('addressT').innerHTML=document.getElementById('addressField').value;
 
-document.getElementById('ObjectT').innerHTML=document.getElementById('objective-field').value;
+document.getElementById('FbT').href=document.getElementById('fB-link').value;
+document.getElementById('InstaT').href=document.getElementById('Insta-link').value;
+document.getElementById('LinkT').href=document.getElementById('Linkedin-link').value;
 
+document.getElementById('objectT').innerHTML=document.getElementById('objectField').value
 var wef=document.getElementsByClassName('wefield');
-
 let str='';
 for(let e of wef){
-    str=str+`<li>${e.value}</li>`;
+    str=str+`<li>${e.value}</li>`
 }
 document.getElementById('weT').innerHTML=str;
 
-let aqs=document.getElementsByClassName('eqfield');
-
-let str2=''
-for(let e of aqs){
+let aqs=document.getElementsByClassName('AQfield');
+let str2='';
+for(let e of wef){
     str2=str2+`<li>${e.value}</li>`
 }
-document.getElementById('AqT').innerHTML=str2;
-document.getElementById('GNcv').style.display='none';
-document.getElementById('cv-templete').style.display='block';
+document.getElementById('aQt').innerHTML=str2;
+
+
+document.getElementById('gnCV').style.display='none';
+document.getElementById('Cv-templete').style.display='block';
 
 //setting image
 let file=document.getElementById('imagefield').files[0]
@@ -74,6 +139,16 @@ reader.onload=function(){
     document.getElementById('imagetemplete').src=reader.result;
 }
 }
+
 function printCV(){
     window.print();
 }
+
+document.getElementById('gnCV').addEventListener('submit', function(event) {
+
+  event.preventDefault();
+
+  genearateCV();
+});
+
+
