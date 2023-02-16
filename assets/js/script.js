@@ -120,7 +120,7 @@ document.getElementById('weT').innerHTML=str;
 
 let aqs=document.getElementsByClassName('AQfield');
 let str2='';
-for(let e of wef){
+for(let e of aqs){
     str2=str2+`<li>${e.value}</li>`
 }
 document.getElementById('aQt').innerHTML=str2;
