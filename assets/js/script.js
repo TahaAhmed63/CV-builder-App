@@ -1,4 +1,9 @@
 
+//field add karni ha expreince section me 
+
+
+
+
 function addNewField() {
     let newNode = document.createElement('textarea');
     newNode.classList.add('form-control')
@@ -13,7 +18,12 @@ function addNewField() {
   
     updateClearOutButtonState();
   }
-  
+
+  //field add karni ha qualification section me
+
+
+
+
   function addNewAQ() {
     let newNode = document.createElement('textarea');
     newNode.classList.add('form-control')
@@ -28,6 +38,10 @@ function addNewField() {
   
     updateClearOutButtonStatetwo();
   }
+//button delete ko show tab karna jab texarea ki length 1 se zaida ho ya 1 hu
+
+
+
   function updateClearOutButtonState() {
     let textareas = document.querySelectorAll('.pick');
     let clearOutButton = document.querySelector('.getbtn');
@@ -37,13 +51,17 @@ function addNewField() {
       clearOutButton.style.display = 'none';
     }
   }
-  
+  //field ko delete karne ke lia button banaya or append karwaya
+
+
+
   for (var i = 0; i < 1; i++) {
     let weaddbtn = document.getElementById('weAddBtn');
     let newbtn = document.createElement('button')
     newbtn.classList.add('btn')
     newbtn.classList.add('btn-primary')
     newbtn.classList.add('btn-sm')
+    newbtn.setAttribute('type','button')
     newbtn.classList.add('getbtn')
     newbtn.innerText = 'clear out'
   
@@ -52,13 +70,18 @@ function addNewField() {
       updateClearOutButtonState();
     });
   }
-  
+  //event clear out button textarea ko remove karne ke lia
+
+
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('getbtn')) {
       event.target.parentNode.previousSibling.remove();
       updateClearOutButtonState();
     }
   });
+//add qualification wale textarea ki length 1 se zaida ho ya 1 hu
+
+
 
   function updateClearOutButtonStatetwo(){
     let textareas = document.querySelectorAll('.pick');
@@ -70,6 +93,9 @@ function addNewField() {
     }
   
   }
+//cleaout button ko banaya or ek bar wo add karwaya event add per 
+
+
 
   for (var i = 0; i < 1; i++) {
     let Aqbtn = document.getElementById('aqBtn');
@@ -79,6 +105,7 @@ function addNewField() {
     newbtn.classList.add('btn-primary')
     newbtn.classList.add('btn-sm')
     newbtn.classList.add('getbtn2')
+    newbtn.setAttribute('type','button')
     newbtn.innerText = 'clear out'
   
     Aqbtn.addEventListener('click', () => {
@@ -86,7 +113,10 @@ function addNewField() {
       updateClearOutButtonStatetwo();
     });
   }
-  
+  //event for deleting the AQ field 
+
+
+
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('getbtn2')) {
 event.target.parentNode.previousSibling.remove();
@@ -94,6 +124,8 @@ event.target.parentNode.previousSibling.remove();
       updateClearOutButtonStatetwo();  
     }
   });
+//cv generate karne ka function
+
 
 function genearateCV(){
     let nameField=document.getElementById('nameField').value;
@@ -143,6 +175,9 @@ reader.onload=function(){
 function printCV(){
     window.print();
 }
+//submit event 
+
+
 
 document.getElementById('gnCV').addEventListener('submit', function(event) {
 
