@@ -17,7 +17,7 @@ function addNewField() {
   function addNewAQ() {
     let newNode = document.createElement('textarea');
     newNode.classList.add('form-control')
-    newNode.classList.add('eqfield');
+    newNode.classList.add('AQfield');
 
     newNode.setAttribute('rows', 3);
     newNode.classList.add('pick')
